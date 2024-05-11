@@ -1,2 +1,2 @@
 # ctf-writeups
-Writeups for participated Captur-The-Flag competitions
+Writeups for participated Capture-The-Flag competitions
