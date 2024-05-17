@@ -22,9 +22,3 @@ encoded_jwt = jwt.encode({
 }, APP_SECRET, algorithm='HS256')
 
 print('encoded_jwt:', encoded_jwt)
-
-cookies['session'] = encoded_jwt
-
-x = requests.get('https://random.chal.cyberjousting.com/',cookies=cookies)
-
-print(x.text)

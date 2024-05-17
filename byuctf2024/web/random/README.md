@@ -7,7 +7,7 @@ byuctf{expl01t_chains_involve_multiple_exploits_in_a_row}
 # Solution
 1. Find the APP_SECRET using current time. Run `getsecret.py` to get JWT token to be authenticated
 
-2. Pass in `/etc/passwd` as filename argument in the GET /api/file API. This will show the home directory (which is a random string) for the user, wheree the flag is stored. 
+2. Pass in `/etc/passwd` as filename argument in the GET /api/file API. This will show the home directory (which is a random string) for the user, where the flag is stored. 
 
 ```
 ctf:x:1000:1000::/439f4860b2c8e9cc50bf2e5dca2e442f:/bin/sh
