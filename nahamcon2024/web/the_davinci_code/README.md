@@ -2,6 +2,7 @@
 Uhhh, someone made a Da Vinci Code fan page? But they spelt it wrong, and it looks like the website seems broken...
 
 # Flag
+flag{2bc76964262b3a1bbd5bc610c6918438}
 
 # Solution
 Clicking on the button redirects to `/code` and shows a "Template Not Found" error. Inspecting the errors allows us to see some server code. Interesting lines in `/app/app.py` include:

