@@ -6,3 +6,8 @@ Here's a backup of all my wallpapers. For security, I set the drive password to 
 # Flag
 
 # Solution
+Unzip and add the `.vhdx` extension to the extracted file.
+
+Open "Computer Management" in Windows and attach the VHD.
+
+Unlock the password-protected drive using the password `videogames`. There are many photos in the drive.
