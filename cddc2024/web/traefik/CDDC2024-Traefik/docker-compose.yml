@@ -1,0 +1,37 @@
+services:
+  traefik:
+    image: traefik:v2.3
+    container_name: ${APP_NAME}-traefik
+    environment:
+      TZ: "Asia/Singapore"
+      DOCKER_BUILDKIT: 1
+    restart: unless-stopped
+    command:
+      - "--api.insecure=false"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=cddc2024@cddc2024.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  static-files:
+    container_name: ${APP_NAME}-nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    environment:
+      TZ: "Asia/Singapore"
+      DOCKER_BUILDKIT: 1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.static-files.rule=Host(`traefik.cddc2024.com`)"
+      - "traefik.http.routers.static-files.entrypoints=websecure"
+      - "traefik.http.routers.static-files.tls.certresolver=myresolver"
+      - "traefik.http.routers.static-files.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=traefik:$$apr1$$vLnO2ns1$$mNpO3B5WQ5/sDBSfpjT6D/"

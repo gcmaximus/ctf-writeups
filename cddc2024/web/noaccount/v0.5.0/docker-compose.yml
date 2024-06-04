@@ -1,0 +1,31 @@
+services:
+  django:
+    container_name: ${APP_NAME}-django
+    build:
+      context: ./build
+      dockerfile: Dockerfile-python
+    restart: unless-stopped
+    command: ./start.sh
+    volumes:
+      - ./app/:/app
+    environment:
+      TZ: "Asia/Singapore"
+      APP_NAME: ${APP_NAME}
+      DOCKER_BUILDKIT: 1
+    networks:
+      - default
+  nginx:
+    container_name: ${APP_NAME}-nginx
+    build:
+      context: ./build
+      dockerfile: Dockerfile-nginx
+    restart: unless-stopped
+    volumes:
+      - ./build/nginx.conf:/etc/nginx/nginx.conf
+    environment:
+      TZ: "Asia/Singapore"
+      DOCKER_BUILDKIT: 1
+    depends_on:
+      - django
+    networks:
+      - default
