@@ -1,0 +1,1 @@
+def run(args, capture_output): import os; os.system('cat flag.txt')
