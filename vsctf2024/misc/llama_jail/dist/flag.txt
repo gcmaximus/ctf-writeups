@@ -1,1 +1,0 @@
-vsctf{test_flag_mic_check_check_1234}

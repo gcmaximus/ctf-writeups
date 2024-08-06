@@ -1,4 +1,0 @@
-gunicorn
-Django
-django-ninja
-django-ninja-jwt
