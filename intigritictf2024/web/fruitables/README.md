@@ -53,7 +53,7 @@ Changing the LIMIT and OFFSET value, we can map out the `users` table as such:
 
 We can use John the Ripper to crack the hash of `tjfry_admin`:
 
-```shell
+```bash
 john --wordlist=/opt/rockyou.txt tjfry_admin.txt
 ```
 ```
