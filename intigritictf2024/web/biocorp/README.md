@@ -24,7 +24,7 @@ if ($ip_address !== '80.187.61.102') {
 }
 ```
 
-We can add a `X-BIOCORP-VPN: 80.187.61.102` header to access the panel.
+We can add a `X-BIOCORP-VPN: 80.187.61.102` HTTP header to access the panel.
 
 <img src="imgs/panel.png">
 
@@ -49,6 +49,6 @@ $control_rods = $doc->getElementsByTagName('control_rods')->item(0)->nodeValue ?
 
 If the request method is POST, the server reads user-input XML from the request body and parses it into a DOMDocument object. 
 
-We can perform an XXE attack and read the flag.txt file.
+We can perform an XXE attack and read the `flag.txt` file.
 
 <img src="imgs/xxe.png">
