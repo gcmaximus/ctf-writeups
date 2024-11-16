@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reactor>
+    <status>
+        <temperature>420</temperature>
+        <pressure>1337</pressure>
+        <control_rods>Lowered</control_rods>
+    </status>
+</reactor>
