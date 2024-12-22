@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "components/note_card.html" import note_card %}
+
+{% block jumbo_title %}Public Notes{% endblock %}
+{% block jumbo_text %}Welcome, {{ username }}!{% endblock %}
+
+{% block main %}
+  <div class="row row-cols-1 g-4 pt-2">
+    {% for note in notes %}
+      <div class="col">
+        {{ note_card(note) }}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if username == "guest" %}
+    <div class="text-center py-2">
+      <a href="/login" class="btn btn-primary">Login</a>
+    </div>
+  {% endif %}
+{% endblock %}

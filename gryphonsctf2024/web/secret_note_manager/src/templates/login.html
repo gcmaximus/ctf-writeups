@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block jumbo_title %}Welcome to Secret Note Manager!{% endblock %}
+{% block jumbo_text %}{% endblock %}
+
+{% block main %}
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <div class="row justify-content-center">
+    <p> Welcome to Secret Note Manager! Please login to continue. </p>
+
+    <form method="post" action="/login">
+      <div class="mb-3">
+        <label for="username">Username</label>
+        <input class="form-control" id="username" name="username" type="text" required>
+      </div>
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input class="form-control" id="password" name="password" type="password" required>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

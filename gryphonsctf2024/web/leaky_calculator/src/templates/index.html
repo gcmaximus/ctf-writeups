@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Leaky Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Calculator</h1>
+  <form method="POST">
+    <input type="text" name="expression" placeholder="Enter expression (e.g., 2+2)">
+    <button type="submit">Calculate</button>
+  </form>
+  <p>Result: {{ result }}</p>
+</body>
+
+</html>
