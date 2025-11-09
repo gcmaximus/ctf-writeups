@@ -47,9 +47,11 @@ The first comment tells us this is actually a path traversal challenge, and we s
 Now we know there is a folder called `/flags` somewhere in the webserver.
 We also know that `part1.txt` and `part2.txt` exists, with a secret batch file seen near `part1.txt`. After some manual fuzzing for these files, I managed to view them:
 
-`/file?name=../flags/part1.txt`: `part 1: 5STI_`
-`/file?name=../part2.txt`: `part 2: p47H_`
-`/file?name=../flags/secret.bat`: `part 3: `
+```
+/file?name=../flags/part1.txt           part 1: 5STI_
+/file?name=../part2.txt                 part 2: p47H_
+/file?name=../flags/secret.bat          part 3: 7Rav3R5A1_
+```
 
 What's left is the last part of the flag. Recall that this is could also be a SSTI challenge, and by inputing the magic word given to us as a payload `{{ __69__ }}` into the name field:
 
