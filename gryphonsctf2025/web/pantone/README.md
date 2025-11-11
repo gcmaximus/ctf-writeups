@@ -27,7 +27,7 @@ def colors():
     ...
 ```
 
-Why didn't the challenge author just parse the string which needed to be evaluated directly into the function, instead of declaring a global variable then parsing it? Maybe we can overwrite the value of this variable to conduct RCE.
+Why didn't the challenge author just parse the string which needed to be evaluated directly into the `evel()`function, instead of declaring a global variable `_EXEC_CMD` then parsing it? Maybe we can overwrite the value of this variable to conduct RCE.
 
 ```py
 def _0x1a2b(_s, _d): 
