@@ -50,9 +50,9 @@ def _0x1a2b(_s, _d):
 
 ```
 
-This is a merger function which 
+This is a merger function which merges the user-supplied JSON data into the global `COLORS` object. We can manipulate special Python attributes like `__init__` and `__globals__`, overwriting global variables in the environment.
 
-Payload:
+Using the payload below in the POST request to the server, we can overwrite the value of `_EXEC_CMD` to evaluate our code which includes the `flag` value into a JSON response .
 
 ```json
 {
@@ -66,3 +66,6 @@ Payload:
     }
 }
 ```
+
+_Flag appears in `message` value_
+<img src="imgs/flag.png">
